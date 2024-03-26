@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Light gray background */
+    margin: 0px;
+}
+
+h1{ 
+    background-color: #859683;
+    padding: 10px;
+    border-radius: 5px;
+ }
+.header {
+    padding: 15px;
+    text-align: left;
+    background-image: url('banner2.jpeg');
+    background-repeat: repeat-x;
+    background-position: center;  
+    color: white;
+    font-size: 15px;
+}
+#todo-list {
+    max-width: 800px;
+    margin: 20px auto; /* Add some margin to center the list */
+    padding: 20px;
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Drop shadow */
+}
+
+#task-button {
+    padding: 10px 20px;
+    background-color: #859683;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth hover transition */
+}
+input[type="text"] {
+    width: calc(100% - 60px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Edit and Delete buttons */
+.edit-btn, .delete-btn {
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s; /* Smooth transition */
+    width: 50px;
+    height: 50px;
+    background-color: #f5f5f5; /* Lighter gray background */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.delete-btn {
+    right: 10px;
+    background-image: url('trashcan.jpeg'); /* Image for delete button */
+}
+.edit-btn {
+    right: 90px; /* Adjusted right position for edit button */
+    background-image: url('pen.png'); /* Image for edit button */
+}
+.edit-btn:hover,
+.delete-btn:hover {
+    transform: translateY(-50%) scale(1.1); /* Scale effect on hover */
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    position: relative;
+    margin-bottom: 15px; /* Increased margin bottom */
+    padding: 15px; /* Increased padding */
+    background-color: #f5f5f5; /* Lighter gray background */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow */
+    overflow: hidden; /* Prevents content from overlapping buttons */
+}
+
+select {
+    margin-left: 20px;
+    padding: 10px;
+    background-color: #859683;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth hover transition */
+    }
+
+select:hover {
+    background-color: #5f6e5d;
+}
+
+.task-checkbox {
+    position: absolute;
+    left: 0; /* Adjusted left position for the checkbox */
+    top: 45%;
+    transform: translateY(-50%);
+    appearance: none; /* Remove default checkbox appearance */
+    width: 20px; /* Set width of checkbox */
+    height: 20px; /* Set height of checkbox */
+    background-color: #fff; /* Background color of checkbox */
+    border: 1px solid #ccc; /* Border of checkbox */
+    border-radius: 3px; /* Border radius of checkbox */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin-right: 10px; /* Add margin to separate checkbox from task text */
+}
+
+.task-checkbox:checked {
+    background-color: #859683; /* Background color when checkbox is checked */
+}
+.task-checkbox:checked:after {
+   
+    content: ''; /* Empty content */
+    display: block;
+    width: 5px; /* Width of the checkmark */
+    height: 10px; /* Height of the checkmark */
+    border: solid #fff; /* Border style for the checkmark */
+    border-width: 0 3px 3px 0; /* Adjust thickness and angle of the checkmark */
+    transform: rotate(45deg); /* Rotate the checkmark to form a tick */
+    margin-left: 2px;/* Adjust positioning of the checkmark */  
+    opacity: 1; /* Show checkmark when checkbox is checked */
+    transition: opacity 0.3s; /* Transition for checkmark */
+}
+
+.task-checkbox:checked:after {
+    opacity: 1; /* Show checkmark when checkbox is checked */
+}
+
+.task-text {
+    margin-left: 15px;
+}
