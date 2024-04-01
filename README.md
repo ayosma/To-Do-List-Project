@@ -1,10 +1,5 @@
-Link to page: https://codd.cs.gsu.edu/~zsirajo1/maindb.php
+Link to page: https://codd.cs.gsu.edu/~zsirajo1/login.php
 
-Tasks are saved to the database and can be edited and deleted
+GSU Codd server was used to implement the database (PPT added to branch on how to use)
 
-To test the page update database credentials to GSU username for username password and database name
-
-$servername = "localhost";
-$username = "username";
-$password = "username";
-$database = "username";
+users are saved to database and each user has their own tasklist that can be edited
