@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>4 The People To-Do List</title>
+    <script>
+        function validPassword() {
+            var password = document.getElementById("password").value;
+            var specialCharacter = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            var number = /\d+/;
+
+            if (!specialCharacter.test(password)) {
+                alert("Password must contain at least one special character.");
+                return false;
+            }
+
+            if (!number.test(password)) {
+                alert("Password must contain at least one number.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+	<img src="To Do List.jpg"><br>
+    <form action="2ndpage.php" method="post">
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br>
+
+        <input type="submit" value="Create Account" onclick="return validPassword()">
+
+        <input type="submit" value="Log In">
+    </form>
+</body>
+</html>
