@@ -1,78 +1,3 @@
-<?php
-      session_start();
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
-
-    require 'connection.php';
-
-    // Initialize session
-
-
-    // Add task
-    if (isset($_POST['add_task']) && !empty($_POST['task_name'])) {
-        $taskName = $_POST['task_name'];
-        $priority = $_POST['priority'];
-        $progress = $_POST['progress'];
-        $userId = $_SESSION['user_id']; // Retrieve user ID from session
-
-    // Insert task into database
-    $sql_add_task = "INSERT INTO tasks (user_id, task_name, priority, progress) VALUES ('$userId', '$taskName', '$priority', '$progress')";
-        if ($conn->query($sql_add_task) === TRUE) {
-            // Redirect to avoid form resubmission
-            header("Location: ".$_SERVER['PHP_SELF']);
-            exit();
-        } else {
-            echo "Error adding task: " . $conn->error;
-        }
-    }
-
-    // Delete task
-    if (isset($_GET['delete'])) {
-        $taskId = $_GET['delete'];
-        
-        // Delete task from database
-        $sql_delete_task = "DELETE FROM tasks WHERE id=$taskId";
-        if ($conn->query($sql_delete_task) === TRUE) {
-            // Redirect to avoid form resubmission
-            header("Location: ".$_SERVER['PHP_SELF']);
-            exit();
-        } else {
-            echo "Error deleting task: " . $conn->error;
-        }
-    }
-
-    // Edit task
-    if (isset($_POST['edit_task']) && isset($_POST['task_id']) && isset($_POST['task_name'])) {
-        $taskId = $_POST['task_id'];
-        $taskName = $_POST['task_name'];
-        $priority = $_POST['priority']; // Added line
-        $progress = $_POST['progress']; // Added line
-        
-        // Update task in database
-        $sql_edit_task = "UPDATE tasks SET task_name='$taskName', priority='$priority', progress='$progress' WHERE id=$taskId";
-        if ($conn->query($sql_edit_task) === TRUE) {
-            echo json_encode(['success' => true, 'message' => 'Task updated successfully.']);
-            exit();
-        } else {
-            echo "Error updating task: " . $conn->error;
-        }
-    }
-
-    // Fetch tasks from database
-    $userId = $_SESSION['user_id']; // Retrieve user ID from session
-    $sql_fetch_tasks = "SELECT * FROM tasks WHERE user_id = $userId";
-    // Rest of the code remains the same
-    $result = $conn->query($sql_fetch_tasks);
-    $tasks = [];
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            $tasks[] = $row;
-        }
-    }
-
-    $conn->close(); // Close the database connection
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -138,8 +63,8 @@
             <?php foreach ($tasks as $task): ?>
                 <li class="task-item">
                     <span><?php echo $task['task_name']; ?></span>
-                    <button class="edit-btn" onclick="editTask(<?php echo $task['id']; ?>)"></button>
-                    <a class="delete-btn" href="?delete=<?php echo $task['id']; ?>"></a>
+                    <button class="edit-btn" onclick="editTask(<?php echo $task['id']; ?>)">Edit</button>
+                    <a class="delete-btn" href="?delete=<?php echo $task['id']; ?>">Delete</a>
                     <!-- Display priority -->
                     <select name="priority" id="prioritySelect">
                         <option value="low" <?php if ($task['priority'] == 'low') echo 'selected'; ?>>Low</option>
