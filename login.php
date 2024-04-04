@@ -90,7 +90,7 @@ if(isset($_POST['signup'])){
         <img src="todolist.jpg" alt="ToDoListPhoto" class="forphoto">
         <form action="login.php" method="POST">
             <br>
-            <input type="text" name="username" placeholder="Email" style="display:block; margin : 0 auto;"
+            <input type="text" name="username" placeholder="Username" style="display:block; margin : 0 auto;"
     <?php
         if(isset($_SESSION['username'])){
         echo 'value="'.$_SESSION['username'].'" ';
