@@ -61,11 +61,8 @@ if(isset($_POST['signup'])){
 ?>
 
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
-    <title>To-do List</title>
-</head>
     <link rel="stylesheet" href="styles.css">
     <title>To-do List</title>
     <script>
@@ -87,6 +84,7 @@ if(isset($_POST['signup'])){
         });
     </script>
 </head>
+
 <body>
     <div class="loginform">
         <img src="todolist.jpg" alt="ToDoListPhoto" class="forphoto">
