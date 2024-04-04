@@ -66,6 +66,27 @@ if(isset($_POST['signup'])){
     <link rel="stylesheet" href="styles.css">
     <title>To-do List</title>
 </head>
+    <link rel="stylesheet" href="styles.css">
+    <title>To-do List</title>
+    <script>
+        function setCursorPositionToStart(element) {
+            element.setSelectionRange(0, 0);
+        }
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            var usernameInput = document.querySelector('input[name="username"]');
+            var passwordInput = document.querySelector('input[name="password"]');
+            
+            if (usernameInput) {
+                setCursorPositionToStart(usernameInput);
+            }
+
+            if (passwordInput) {
+                setCursorPositionToStart(passwordInput);
+            }
+        });
+    </script>
+</head>
 <body>
     <div class="loginform">
         <img src="todolist.jpg" alt="ToDoListPhoto" class="forphoto">
