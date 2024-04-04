@@ -90,13 +90,15 @@ if(isset($_POST['signup'])){
         <img src="todolist.jpg" alt="ToDoListPhoto" class="forphoto">
         <form action="login.php" method="POST">
             <br>
-            <input type="text" name="username" placeholder="Email" style="display:block; margin : 0 auto;" value ="
-                <?php
-                    if(isset($_SESSION['username'])){
-                        echo $_SESSION['username'];
-                    }
-                ?>
-            ">
+            <input type="text" name="username" placeholder="Email" style="display:block; margin : 0 auto;"
+    <?php
+        if(isset($_SESSION['username'])){
+        echo 'value="'.$_SESSION['username'].'" ';
+    }
+    ?>
+    onfocus="this.setSelectionRange(0, this.value.length);"
+>
+           ">
             <br>
             <input type="password" name="password" placeholder="Password" style="display:block; margin : 0 auto;">
             <br>
